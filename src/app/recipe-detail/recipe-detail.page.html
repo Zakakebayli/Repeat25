@@ -1,0 +1,97 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ recipe?.name || 'Recipe Details' }}</ion-title>
+      <ion-buttons slot="end" *ngIf="recipe">
+        <ion-button 
+          fill="clear" 
+          (click)="toggleFavorite()"
+          [color]="recipe.isFavorite ? 'danger' : 'medium'">
+          <ion-icon 
+            [name]="recipe.isFavorite ? 'heart' : 'heart-outline'" 
+            slot="icon-only">
+          </ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <!-- Loading  -->
+    <div *ngIf="loading" class="loading-container">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Loading recipe...</p>
+    </div>
+  
+    <!-- Error  -->
+    <div *ngIf="error && !loading" class="error-container">
+      <ion-icon name="restaurant" size="large"></ion-icon>
+      <h2>Recipe Not Found</h2>
+      <p>{{ error }}</p>
+      <ion-button (click)="goBack()" fill="outline">
+        Go Back
+      </ion-button>
+    </div>
+  
+    <!-- Recipe content -->
+    <div *ngIf="recipe && !loading && !error">
+      <!--  image section -->
+      <div class="hero-section">
+        <img 
+          [src]="recipe.thumbnail" 
+          [alt]="recipe.name"
+          (error)="onImageError($event)" />
+        <div class="hero-overlay">
+          <h1>{{ recipe.name }}</h1>
+          <div class="recipe-meta">
+            <ion-chip color="primary" *ngIf="recipe.category">
+              <ion-label>{{ recipe.category }}</ion-label>
+            </ion-chip>
+            <ion-chip color="secondary" *ngIf="recipe.area">
+              <ion-label>{{ recipe.area }}</ion-label>
+            </ion-chip>
+          </div>
+        </div>
+      </div>
+  
+      <div class="content-section">
+        <!-- Ingredients section -->
+        <ion-card *ngIf="recipe.ingredients?.length">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="restaurant" class="section-icon"></ion-icon>
+              Ingredients ({{ recipe.ingredients.length }})
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item *ngFor="let ingredient of recipe.ingredients; let i = index">
+                <ion-label>
+                  <span class="ingredient-number">{{ i + 1 }}.</span>
+                  {{ ingredient }}
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+  
+        <!-- Instructions section -->
+        <ion-card *ngIf="recipe.instructions">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon name="list" class="section-icon"></ion-icon>
+              Instructions
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="instructions-content">
+              <p>{{ formatInstructions(recipe.instructions) }}</p>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </ion-content>
+  

@@ -1,0 +1,156 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    text-align: center;
+    
+    ion-spinner {
+      margin-bottom: 16px;
+    }
+    
+    p {
+      color: var(--ion-color-medium);
+      margin: 0;
+    }
+  }
+  
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    text-align: center;
+    
+    ion-icon {
+      color: var(--ion-color-medium);
+      margin-bottom: 16px;
+    }
+    
+    h2 {
+      color: var(--ion-color-dark);
+      margin: 0 0 8px 0;
+    }
+    
+    p {
+      color: var(--ion-color-medium);
+      margin: 0 0 16px 0;
+    }
+  }
+  
+  .hero-section {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      padding: 48px 16px 16px;
+      color: white;
+      
+      h1 {
+        margin: 0 0 8px 0;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      
+      .recipe-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+    }
+  }
+  
+  .content-section {
+    padding: 16px;
+    
+    ion-card {
+      margin: 16px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      
+      ion-card-header {
+        ion-card-title {
+          display: flex;
+          align-items: center;
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: var(--ion-color-dark);
+          
+          .section-icon {
+            margin-right: 8px;
+            color: var(--ion-color-primary);
+          }
+        }
+      }
+      
+      ion-card-content {
+        padding-top: 0;
+        
+        ion-list {
+          background: transparent;
+          
+          ion-item {
+            --padding-start: 0;
+            --inner-padding-end: 0;
+            --border-width: 0;
+            
+            ion-label {
+              margin: 8px 0;
+              line-height: 1.4;
+              
+              .ingredient-number {
+                font-weight: 600;
+                color: var(--ion-color-primary);
+                margin-right: 8px;
+              }
+            }
+          }
+        }
+        
+        .instructions-content {
+          p {
+            line-height: 1.6;
+            margin: 0;
+            white-space: pre-line;
+            color: var(--ion-color-dark);
+          }
+        }
+      }
+    }
+  }
+  
+  // Responsive improvements
+  @media (min-width: 768px) {
+    .hero-section {
+      height: 400px;
+      
+      .hero-overlay {
+        padding: 64px 32px 24px;
+        
+        h1 {
+          font-size: 2.2rem;
+        }
+      }
+    }
+    
+    .content-section {
+      padding: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }

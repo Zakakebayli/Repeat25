@@ -1,0 +1,133 @@
+ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+  }
+  
+  .loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    text-align: center;
+    
+    ion-spinner, ion-icon {
+      margin-bottom: 16px;
+    }
+    
+    h2 {
+      color: var(--ion-color-dark);
+      margin: 0 0 8px 0;
+    }
+    
+    p {
+      color: var(--ion-color-medium);
+      margin: 0 0 16px 0;
+    }
+  }
+  
+  .recipes-grid {
+    padding: 8px 0;
+  }
+  
+  .recipe-card {
+    margin: 8px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .image-container {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .favorite-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        --background: rgba(255, 255, 255, 0.9);
+        --border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        backdrop-filter: blur(4px);
+        z-index: 1;
+      }
+    }
+    
+    ion-card-header {
+      padding: 12px 12px 8px;
+      
+      ion-card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+    
+    ion-card-content {
+      padding: 0 12px 12px;
+      
+      .recipe-meta {
+        margin-bottom: 8px;
+        display: flex;
+        gap: 8px;
+        
+        .meta-item {
+          font-size: 0.8rem;
+          color: var(--ion-color-primary);
+          background: var(--ion-color-primary-tint);
+          padding: 2px 8px;
+          border-radius: 12px;
+        }
+      }
+      
+      .recipe-preview {
+        color: var(--ion-color-medium);
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin: 0;
+      }
+    }
+  }
+  
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 32px;
+    text-align: center;
+    
+    ion-icon {
+      color: var(--ion-color-medium);
+      margin-bottom: 16px;
+    }
+    
+    h2 {
+      color: var(--ion-color-dark);
+      margin: 0 0 8px 0;
+    }
+    
+    p {
+      color: var(--ion-color-medium);
+      margin: 0 0 24px 0;
+    }
+  }

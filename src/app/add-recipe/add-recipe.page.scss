@@ -1,0 +1,104 @@
+ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+  }
+  
+  .form-container {
+    padding: 16px 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+    
+    ion-card-header {
+      ion-card-title {
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--ion-color-dark);
+        
+        .title-icon {
+          margin-right: 8px;
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+    
+    ion-card-content {
+      padding-top: 0;
+      
+      ion-list {
+        background: transparent;
+        
+        .form-item {
+          --padding-start: 0;
+          --inner-padding-end: 0;
+          --border-width: 0 0 1px 0;
+          --border-color: var(--ion-color-light);
+          margin-bottom: 16px;
+          
+          &:last-child {
+            --border-width: 0;
+            margin-bottom: 0;
+          }
+          
+          ion-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+          }
+          
+          ion-input, ion-textarea {
+            --padding-top: 8px;
+            --padding-bottom: 8px;
+            
+            &::part(native) {
+              border-radius: 8px;
+              border: 2px solid var(--ion-color-light);
+              padding: 8px 12px;
+              transition: border-color 0.2s ease;
+              
+              &:focus {
+                border-color: var(--ion-color-primary);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .action-buttons {
+    padding: 0 16px 32px;
+    
+    .save-button {
+      margin-bottom: 12px;
+      height: 48px;
+      font-weight: 600;
+      
+      &:not(.button-disabled) {
+        box-shadow: 0 2px 8px rgba(var(--ion-color-primary-rgb), 0.3);
+      }
+    }
+    
+    .reset-button {
+      height: 44px;
+    }
+  }
+  
+  //  improvements
+  @media (min-width: 768px) {
+    ion-content {
+      --padding-start: 24px;
+      --padding-end: 24px;
+    }
+    
+    .form-container {
+      padding: 24px 0;
+    }
+  }
+  
