@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "ExpenseTracker",
   "version": "0.0.1",
   "author": "Ionic Framework",
@@ -61,4 +62,10 @@
     "typescript": "~5.8.0"
   },
   "description": "An Ionic project"
+=======
+  "dependencies": {
+    "@capacitor/storage": "^1.2.5",
+    "@ionic/storage-angular": "^4.0.0"
+  }
+>>>>>>> 74aa577a07e3431294c3bafcc3b7541cb783939e
 }
